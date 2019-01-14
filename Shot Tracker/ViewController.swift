@@ -1,11 +1,10 @@
 //
-//  ViewController.swift
+//  ViewController.swift  Main Dashboard
 //  Shot Tracker
 //
-//  Created by Greg Brooks on 2019-01-07.
-//  Copyright © 2019 Greg Brooks. All rights reserved.
+//  Created by Greg Brooks on 2019-01-10.
+//  Copyright © 2019 MAG Industries. All rights reserved.
 //
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -17,5 +16,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-
+    
+    
 }
