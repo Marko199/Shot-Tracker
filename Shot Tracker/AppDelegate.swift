@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  Shot Tracker
 //
-//  Created by Greg Brooks on 2019-01-07.
-//  Copyright © 2019 Greg Brooks. All rights reserved.
+//  Created by Greg Brooks on 2019-01-10.
+//  Copyright © 2019 MAG Industries. All rights reserved.
 //
 
 import UIKit
