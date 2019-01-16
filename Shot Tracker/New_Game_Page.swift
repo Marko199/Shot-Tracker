@@ -12,21 +12,84 @@ class New_Game_Page: UIViewController {
 
     // declare image view vars
     let shot_marker_image = UIImage(named: "shot_marker.png");
+    let goal_marker_image = UIImage(named: "goal_marker.png");
     let rinkImage = UIImage(named: "ice_rink_image.png");
+    
+    var yLocationCords: Int = 0
+    var xLocationCords: Int = 0
     // _______________future values to be used________________
     //let rinkMiniImage = UIImage(named: "mini_ice_rink_image.png");
    // let RinkimageView = UIImageView(image: #imageLiteral(resourceName: "ice_rink_image"))
     //let MiniRinkimageView = UIImageView(image: #imageLiteral(resourceName: "mini_ice_rink_image"))
     //_________________________________________________________
     var shotMarkerimageView   : UIImageView!
+    var goalMarkerimageView   : UIImageView!
+    
+   
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let location = touch.location(in: self.view)
+        
+        //print(location)
+        
+        yLocationCords = Int(location.y)
+        xLocationCords = Int(location.x)
+        print(yLocationCords)
+        print(location.y)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // check Tap gestuires for a single tap
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(singleTapped));
+        singleTap.numberOfTapsRequired = 1
+        view.addGestureRecognizer(singleTap)
+        
+        // check Tap gestuires for a double tap
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped));
+        doubleTap.numberOfTapsRequired = 2
+        view.addGestureRecognizer(doubleTap)
     }
-    
-
+    // single tap function applies black x to ice surface when gesture returns correct
+    @objc func singleTapped() {
+        print("Single Tap Detected")
+        if (yLocationCords >= 73){
+            // set imageview location and size along with aspect type
+            // subtrac - 50 from cord to center image under user click
+            shotMarkerimageView = UIImageView(frame: CGRect(x: xLocationCords - 50, y: yLocationCords - 50, width: 50, height: 50));
+            print(shotMarkerimageView)
+            shotMarkerimageView.contentMode = .scaleAspectFill;
+            shotMarkerimageView.image = shot_marker_image;
+            view.addSubview(shotMarkerimageView);
+        }
+            // if marker goes outisde ice surface zone in terms of IF statement restrictions
+        else {
+            
+            boundaryAlert();
+            
+        }
+    }
+    // double tap function applies red x to ice surface when gesture returns correct
+    @objc func doubleTapped() {
+        print("Double Tap Detected")
+        if (yLocationCords >= 73){
+            // set imageview location and size along with aspect type
+            // subtrac - 50 from cord to center image under user click
+            goalMarkerimageView = UIImageView(frame: CGRect(x: xLocationCords - 50, y: yLocationCords - 50, width: 50, height: 50));
+            print(goalMarkerimageView)
+            goalMarkerimageView.contentMode = .scaleAspectFill;
+            goalMarkerimageView.image = goal_marker_image;
+            view.addSubview(goalMarkerimageView);
+        }
+            // if marker goes outisde ice surface zone in terms of IF statement restrictions
+        else {
+            
+            boundaryAlert();
+            
+        }
+    }
     
     // action when clicking done button
     @IBAction func doneButton(_ sender: Any) {
@@ -55,50 +118,6 @@ class New_Game_Page: UIViewController {
         // show the alert
         self.present(navBarAlert, animated: true, completion: nil)
         
-    }
-    
-    
-    // testing orientation of device for uiimage view rotation
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        if UIDevice.current.orientation.isLandscape {
-            
-            //return UIDevice.current.orientation.isLandscape = true;
-            print("Device is in Landscape")
-            
-        } else {
-            
-            print("Device is in Portrait")
-        }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first!
-        let location = touch.location(in: self.view)
-        
-        print(location)
-        
-        //let iceRinkMargins = RinkimageView.layoutMarginsGuide
-
-        // check to see placement of marker is inside ice surface
-        if (location.y >= 73.00){
-            // set imageview location and size along with aspect type
-            // subtrac - 50 from cord to center image under user click
-            shotMarkerimageView = UIImageView(frame: CGRect(x: location.x - 50, y: location.y - 50, width: 100, height: 100));
-            print(shotMarkerimageView)
-            shotMarkerimageView.contentMode = .scaleAspectFill;
-            shotMarkerimageView.image = shot_marker_image;
-            view.addSubview(shotMarkerimageView);
-            // log location in terms of x, y cords of useer touch
-            print(location);
-        }
-        // if marker goes outisde ice surface zone in terms of IF statement restrictions
-        else {
-            
-            boundaryAlert();
-
-        }
-            
-            
     }
     
 
