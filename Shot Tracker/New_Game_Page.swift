@@ -14,15 +14,11 @@ class New_Game_Page: UIViewController {
     let shot_marker_image = UIImage(named: "shot_marker.png");
     let goal_marker_image = UIImage(named: "goal_marker.png");
     let rinkImage = UIImage(named: "ice_rink_image.png");
+    //var shot_marker_image: UIImage = UIImage(named: "shot_marker.png")!;
     
     var yLocationCords: Int = 0
     var xLocationCords: Int = 0
-    var numberOfTap: Int!
-    // _______________future values to be used________________
-    //let rinkMiniImage = UIImage(named: "mini_ice_rink_image.png");
-   // let RinkimageView = UIImageView(image: #imageLiteral(resourceName: "ice_rink_image"))
-    //let MiniRinkimageView = UIImageView(image: #imageLiteral(resourceName: "mini_ice_rink_image"))
-    //_________________________________________________________
+ 
     var shotMarkerimageView   : UIImageView!
     var goalMarkerimageView   : UIImageView!
     
@@ -57,6 +53,7 @@ class New_Game_Page: UIViewController {
         //longTap.delaysTouchesBegan = true
         view.addGestureRecognizer(longTap)
     
+        // MUST SET ON EACH VIEW DEPENDENT ON ORIENTATION NEEDS
         // get rotation allowances of device
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         // set auto rotation to false
@@ -64,19 +61,29 @@ class New_Game_Page: UIViewController {
     
     
     }
+    
+    func markerProcessing(markerType: UIImage){
+        
+        goalMarkerimageView = UIImageView(frame: CGRect(x: xLocationCords - 25, y: yLocationCords - 25, width: 50, height: 50));
+        print(goalMarkerimageView)
+        goalMarkerimageView.contentMode = .scaleAspectFill;
+        goalMarkerimageView.image = markerType;
+        view.addSubview(goalMarkerimageView);
+        print("Makerker Placed")
+        
+        // SAVING OF MARKER CORDS HAPPEN HERE
+        
+        
+    }
+    
+    
     // single tap function applies black x to ice surface when gesture returns correct
     @objc func singleTapped() {
         print("Single Tap Detected")
+        
         if (yLocationCords >= 73){
-       
-            // set imageview location and size along with aspect type
-            // subtrac - 50 from cord to center image under user click
-            shotMarkerimageView = UIImageView(frame: CGRect(x: xLocationCords - 25, y: yLocationCords - 25, width: 50, height: 50));
-            print(shotMarkerimageView)
-            shotMarkerimageView.contentMode = .scaleAspectFill;
-            shotMarkerimageView.image = shot_marker_image;
-            view.addSubview(shotMarkerimageView);
-            print("Shot Makerker Placed")
+           
+            markerAlert();
             
         }
             // if marker goes outisde ice surface zone in terms of IF statement restrictions
@@ -90,14 +97,8 @@ class New_Game_Page: UIViewController {
     @objc func longTapped() {
         print("Double Tap Detected")
         if (yLocationCords >= 73){
-            // set imageview location and size along with aspect type
-            // subtrac - 50 from cord to center image under user click
-            goalMarkerimageView = UIImageView(frame: CGRect(x: xLocationCords - 25, y: yLocationCords - 25, width: 50, height: 50));
-            print(goalMarkerimageView)
-            goalMarkerimageView.contentMode = .scaleAspectFill;
-            goalMarkerimageView.image = goal_marker_image;
-            view.addSubview(goalMarkerimageView);
-            print("Goal Makerker Placed")
+
+            markerAlert();
         }
             // if marker goes outisde ice surface zone in terms of IF statement restrictions
         else {
@@ -135,8 +136,21 @@ class New_Game_Page: UIViewController {
         self.present(navBarAlert, animated: true, completion: nil)
         
     }
-    
 
+    func markerAlert(){
+        
+        // create the alert
+        let markerPlacementAlert = UIAlertController(title: "Ice Surface Interaction", message: "Please Select Corresponding Player Data Based on Ice Surface Interaction", preferredStyle: UIAlertController.Style.alert)
+        // add Cancel action (button)
+        markerPlacementAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        // add Save action (button)
+        markerPlacementAlert.addAction(UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: {action in self.performSegue(withIdentifier: "newMarkerSegue", sender: nil);}))
+        // show the alert
+        self.present(markerPlacementAlert, animated: true, completion: nil);
+        
+    }
+    
+    
 }
 
 
