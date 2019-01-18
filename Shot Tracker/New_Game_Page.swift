@@ -64,15 +64,16 @@ class New_Game_Page: UIViewController {
     
     func markerProcessing(markerType: UIImage){
         
-        goalMarkerimageView = UIImageView(frame: CGRect(x: xLocationCords - 25, y: yLocationCords - 25, width: 50, height: 50));
+        //---------------------------------------------
+        // on each view controller load print all markers
+        //______________________________________________
+        
+                goalMarkerimageView = UIImageView(frame: CGRect(x: xLocationCords - 25, y: yLocationCords - 25, width: 50, height: 50));
         print(goalMarkerimageView)
         goalMarkerimageView.contentMode = .scaleAspectFill;
         goalMarkerimageView.image = markerType;
         view.addSubview(goalMarkerimageView);
         print("Makerker Placed")
-        
-        // SAVING OF MARKER CORDS HAPPEN HERE
-        
         
     }
     
@@ -84,7 +85,9 @@ class New_Game_Page: UIViewController {
         if (yLocationCords >= 73){
            
             markerAlert();
-            
+            //------------------------
+            // Pass Cords to Maker INfo Page
+            // __________________________
         }
             // if marker goes outisde ice surface zone in terms of IF statement restrictions
         else {
