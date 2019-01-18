@@ -15,6 +15,7 @@
 		BE7D698221E3D74500C1745C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7D698021E3D74500C1745C /* LaunchScreen.storyboard */; };
 		BE7D698D21E3D74500C1745C /* Shot_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7D698C21E3D74500C1745C /* Shot_TrackerTests.swift */; };
 		BE7D699821E3D74500C1745C /* Shot_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7D699721E3D74500C1745C /* Shot_TrackerUITests.swift */; };
+		BEDA530E21F14023002FAC32 /* Marker_Info_Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA530D21F14023002FAC32 /* Marker_Info_Page.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		BE7D699321E3D74500C1745C /* Shot TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shot TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7D699721E3D74500C1745C /* Shot_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shot_TrackerUITests.swift; sourceTree = "<group>"; };
 		BE7D699921E3D74500C1745C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEDA530D21F14023002FAC32 /* Marker_Info_Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker_Info_Page.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				BE7D697721E3D74300C1745C /* AppDelegate.swift */,
 				BE7D697921E3D74300C1745C /* ViewController.swift */,
+				BEDA530D21F14023002FAC32 /* Marker_Info_Page.swift */,
 				BE5584BD21E7AB8700C44D42 /* New_Game_Page.swift */,
 				BE7D697B21E3D74300C1745C /* Main.storyboard */,
 				BE7D697E21E3D74500C1745C /* Assets.xcassets */,
@@ -261,6 +264,7 @@
 			files = (
 				BE7D697A21E3D74300C1745C /* ViewController.swift in Sources */,
 				BE5584BE21E7AB8700C44D42 /* New_Game_Page.swift in Sources */,
+				BEDA530E21F14023002FAC32 /* Marker_Info_Page.swift in Sources */,
 				BE7D697821E3D74300C1745C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
