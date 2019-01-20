@@ -22,7 +22,8 @@ class New_Game_Page: UIViewController {
     var shotMarkerimageView   : UIImageView!
     var goalMarkerimageView   : UIImageView!
     
-   
+
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let location = touch.location(in: self.view)
@@ -31,12 +32,10 @@ class New_Game_Page: UIViewController {
         
         yLocationCords = Int(location.y)
         xLocationCords = Int(location.x)
-        print(yLocationCords)
-        print(location.y)
-        
+
     }
 
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,13 +61,14 @@ class New_Game_Page: UIViewController {
     
     }
     
+    
     func markerProcessing(markerType: UIImage){
         
         //---------------------------------------------
         // on each view controller load print all markers
         //______________________________________________
         
-                goalMarkerimageView = UIImageView(frame: CGRect(x: xLocationCords - 25, y: yLocationCords - 25, width: 50, height: 50));
+        goalMarkerimageView = UIImageView(frame: CGRect(x: xLocationCords - 25, y: yLocationCords - 25, width: 50, height: 50));
         print(goalMarkerimageView)
         goalMarkerimageView.contentMode = .scaleAspectFill;
         goalMarkerimageView.image = markerType;
@@ -84,6 +84,7 @@ class New_Game_Page: UIViewController {
         
         if (yLocationCords >= 73){
            
+            
             markerAlert();
             //------------------------
             // Pass Cords to Maker INfo Page
@@ -152,7 +153,17 @@ class New_Game_Page: UIViewController {
         self.present(markerPlacementAlert, animated: true, completion: nil);
         
     }
-    
+    // func used to pass varables on segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // check is appropriate segue is being used
+        if (segue.identifier == "saveMarkerSeague"){
+            // set var vc as destination segue
+            let vc = segue.destination as! Marker_Info_Page
+            //let new_vc = segue.destination as! New_Game_Page
+            vc.xCords = xLocationCords
+            vc.yCords = yLocationCords
+        }
+    }
     
 }
 
