@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class Marker_Info_Page: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -14,8 +15,13 @@ class Marker_Info_Page: UIViewController, UIPickerViewDelegate, UIPickerViewData
     var teamPickerData: [String] = [String]()
     
     // get X, Y cords from New_Game_Page View controller
-    var xCords: Int!
-    var yCords: Int!
+    var xCords: Int = 0
+    var yCords: Int = 0
+    var xCoordinate = goalMarkersTable();
+    var yCoordinate = goalMarkersTable();
+    var cordSetIDNum = goalMarkersTable();
+    
+    let realm = try! Realm();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,16 +39,17 @@ class Marker_Info_Page: UIViewController, UIPickerViewDelegate, UIPickerViewData
         // set auto rotation to false
         appDelegate.shouldRotate = true
         
-        // Do any additional setup after loading the view.
+
 
     }
+    
     
     @IBAction func saveMarkerDataButton(_ sender: UIBarButtonItem) {
         
         //----------------------------------------
         // Refrence to saving fucntion will be placed in relation to UIAlertAction
         //_________________________________________
-        
+       
         
         // create the alert
         let saveButtonAlert = UIAlertController(title: "Back to Dashboard", message: "Would you like to save this as a new game?", preferredStyle: UIAlertController.Style.alert)
@@ -88,6 +95,29 @@ class Marker_Info_Page: UIViewController, UIPickerViewDelegate, UIPickerViewData
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
    
+    }
+    
+    // func used to send value to realm on segue back to new game VC
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // check is appropriate segue is being used
+        if (segue.identifier == "saveMarkerSeague"){
+            // set our class reference to the specified vars passed on segue call
+            var cordIDChercker:Int = realm.objects(goalMarkersTable.self).filter("cordSetID.@max");
+            if (cordIDChercker == nil){cordIDChercker = 1;}
+            else {cordSetIDNum.cordSetID = cordIDChercker + 1;}
+           
+            xCoordinate.xCordGoal = xCords;
+            yCoordinate.yCordGoal = yCords;
+            //ENABLE VARS WHEN STATS PAGE READY!!
+            //teamIDNum.TeamID = realm.objects(teamInfoTable.self).filter("TeamID == selectedTeamFromPicker")
+            //playerIDNum.playerID = realm.objects(playerInfoTable.self).filter("TeamID == selectedPlayerFromPicker")
+            //newGameIDNum.gameID = realm.objects(newGameTable.self).filter("gameID == varPassedFromSegue")
+            // attempt to write vars to realm database
+            try! realm.write{
+                realm.add(xCoordinate)
+                realm.add(yCoordinate)
+            }
+        }
     }
     
 }

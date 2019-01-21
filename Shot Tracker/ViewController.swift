@@ -6,6 +6,7 @@
 //  Copyright © 2019 MAG Industries. All rights reserved.
 //
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
 

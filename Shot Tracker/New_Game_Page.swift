@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class New_Game_Page: UIViewController {
 
@@ -32,6 +33,9 @@ class New_Game_Page: UIViewController {
         
         yLocationCords = Int(location.y)
         xLocationCords = Int(location.x)
+        
+        let realm = try! Realm()
+        print(Realm.Configuration.defaultConfiguration.fileURL)
 
     }
 
@@ -81,7 +85,6 @@ class New_Game_Page: UIViewController {
     // single tap function applies black x to ice surface when gesture returns correct
     @objc func singleTapped() {
         print("Single Tap Detected")
-        
         if (yLocationCords >= 73){
            
             
@@ -128,6 +131,18 @@ class New_Game_Page: UIViewController {
         
     }
     
+    // func used to pass varables on segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // check is appropriate segue is being used
+        if (segue.identifier == "newMarkerSegue"){
+            // set var vc as destination segue
+            let vc = segue.destination as! Marker_Info_Page
+            //let new_vc = segue.destination as! New_Game_Page
+            print(xLocationCords)
+            vc.xCords = xLocationCords
+            vc.yCords = yLocationCords
+        }
+    }
     
     // bounbdary alert func displays error messagfe to user based on wrong marker placement
     func boundaryAlert(){
@@ -148,22 +163,12 @@ class New_Game_Page: UIViewController {
         // add Cancel action (button)
         markerPlacementAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         // add Save action (button)
-        markerPlacementAlert.addAction(UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: {action in self.performSegue(withIdentifier: "newMarkerSegue", sender: nil);}))
+        markerPlacementAlert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: {action in self.performSegue(withIdentifier: "newMarkerSegue", sender: nil);}))
         // show the alert
         self.present(markerPlacementAlert, animated: true, completion: nil);
         
     }
-    // func used to pass varables on segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // check is appropriate segue is being used
-        if (segue.identifier == "saveMarkerSeague"){
-            // set var vc as destination segue
-            let vc = segue.destination as! Marker_Info_Page
-            //let new_vc = segue.destination as! New_Game_Page
-            vc.xCords = xLocationCords
-            vc.yCords = yLocationCords
-        }
-    }
+
     
 }
 

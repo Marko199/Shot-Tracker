@@ -15,6 +15,18 @@
 		BE7D698221E3D74500C1745C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE7D698021E3D74500C1745C /* LaunchScreen.storyboard */; };
 		BE7D698D21E3D74500C1745C /* Shot_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7D698C21E3D74500C1745C /* Shot_TrackerTests.swift */; };
 		BE7D699821E3D74500C1745C /* Shot_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7D699721E3D74500C1745C /* Shot_TrackerUITests.swift */; };
+		BE83903D21F64F1900D02C0B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE83903B21F64F1700D02C0B /* RealmSwift.framework */; };
+		BE83903E21F64F1900D02C0B /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE83903B21F64F1700D02C0B /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE83903F21F64F1900D02C0B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE83903C21F64F1900D02C0B /* Realm.framework */; };
+		BE83904021F64F1900D02C0B /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE83903C21F64F1900D02C0B /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE83904321F6515000D02C0B /* Realm.framework in Sources */ = {isa = PBXBuildFile; fileRef = BE83903C21F64F1900D02C0B /* Realm.framework */; };
+		BE83904421F6515000D02C0B /* RealmSwift.framework in Sources */ = {isa = PBXBuildFile; fileRef = BE83903B21F64F1700D02C0B /* RealmSwift.framework */; };
+		BE83904521F6515E00D02C0B /* Realm.framework in Resources */ = {isa = PBXBuildFile; fileRef = BE83903C21F64F1900D02C0B /* Realm.framework */; };
+		BE83904621F6515E00D02C0B /* RealmSwift.framework in Resources */ = {isa = PBXBuildFile; fileRef = BE83903B21F64F1700D02C0B /* RealmSwift.framework */; };
+		BE83904821F660DB00D02C0B /* New Game Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE83904721F660DB00D02C0B /* New Game Table.swift */; };
+		BE83904A21F663A600D02C0B /* Team Info Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE83904921F663A600D02C0B /* Team Info Table.swift */; };
+		BE83904C21F663BA00D02C0B /* Player Info Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE83904B21F663BA00D02C0B /* Player Info Table.swift */; };
+		BE83905021F6715400D02C0B /* Goal Marker Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE83904F21F6715400D02C0B /* Goal Marker Table.swift */; };
 		BEDA530E21F14023002FAC32 /* Marker_Info_Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA530D21F14023002FAC32 /* Marker_Info_Page.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +47,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BE83904121F64F1900D02C0B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BE83904021F64F1900D02C0B /* Realm.framework in Embed Frameworks */,
+				BE83903E21F64F1900D02C0B /* RealmSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		BE5584BD21E7AB8700C44D42 /* New_Game_Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = New_Game_Page.swift; sourceTree = "<group>"; };
 		BE7D697421E3D74300C1745C /* Shot Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shot Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +77,12 @@
 		BE7D699321E3D74500C1745C /* Shot TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shot TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7D699721E3D74500C1745C /* Shot_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shot_TrackerUITests.swift; sourceTree = "<group>"; };
 		BE7D699921E3D74500C1745C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE83903B21F64F1700D02C0B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		BE83903C21F64F1900D02C0B /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		BE83904721F660DB00D02C0B /* New Game Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "New Game Table.swift"; sourceTree = "<group>"; };
+		BE83904921F663A600D02C0B /* Team Info Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Team Info Table.swift"; sourceTree = "<group>"; };
+		BE83904B21F663BA00D02C0B /* Player Info Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Player Info Table.swift"; sourceTree = "<group>"; };
+		BE83904F21F6715400D02C0B /* Goal Marker Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goal Marker Table.swift"; sourceTree = "<group>"; };
 		BEDA530D21F14023002FAC32 /* Marker_Info_Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker_Info_Page.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +91,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE83903F21F64F1900D02C0B /* Realm.framework in Frameworks */,
+				BE83903D21F64F1900D02C0B /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +116,8 @@
 		BE7D696B21E3D74300C1745C = {
 			isa = PBXGroup;
 			children = (
+				BE83903C21F64F1900D02C0B /* Realm.framework */,
+				BE83903B21F64F1700D02C0B /* RealmSwift.framework */,
 				BE7D697621E3D74300C1745C /* Shot Tracker */,
 				BE7D698B21E3D74500C1745C /* Shot TrackerTests */,
 				BE7D699621E3D74500C1745C /* Shot TrackerUITests */,
@@ -109,6 +146,10 @@
 				BE7D697E21E3D74500C1745C /* Assets.xcassets */,
 				BE7D698021E3D74500C1745C /* LaunchScreen.storyboard */,
 				BE7D698321E3D74500C1745C /* Info.plist */,
+				BE83904721F660DB00D02C0B /* New Game Table.swift */,
+				BE83904921F663A600D02C0B /* Team Info Table.swift */,
+				BE83904B21F663BA00D02C0B /* Player Info Table.swift */,
+				BE83904F21F6715400D02C0B /* Goal Marker Table.swift */,
 			);
 			path = "Shot Tracker";
 			sourceTree = "<group>";
@@ -141,6 +182,8 @@
 				BE7D697021E3D74300C1745C /* Sources */,
 				BE7D697121E3D74300C1745C /* Frameworks */,
 				BE7D697221E3D74300C1745C /* Resources */,
+				BE83904121F64F1900D02C0B /* Embed Frameworks */,
+				BE83904221F650E900D02C0B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -235,6 +278,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE83904521F6515E00D02C0B /* Realm.framework in Resources */,
+				BE83904621F6515E00D02C0B /* RealmSwift.framework in Resources */,
 				BE7D698221E3D74500C1745C /* LaunchScreen.storyboard in Resources */,
 				BE7D697F21E3D74500C1745C /* Assets.xcassets in Resources */,
 				BE7D697D21E3D74300C1745C /* Main.storyboard in Resources */,
@@ -257,11 +302,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BE83904221F650E900D02C0B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nbash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BE7D697021E3D74300C1745C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE83904321F6515000D02C0B /* Realm.framework in Sources */,
+				BE83905021F6715400D02C0B /* Goal Marker Table.swift in Sources */,
+				BE83904C21F663BA00D02C0B /* Player Info Table.swift in Sources */,
+				BE83904421F6515000D02C0B /* RealmSwift.framework in Sources */,
+				BE83904821F660DB00D02C0B /* New Game Table.swift in Sources */,
+				BE83904A21F663A600D02C0B /* Team Info Table.swift in Sources */,
 				BE7D697A21E3D74300C1745C /* ViewController.swift in Sources */,
 				BE5584BE21E7AB8700C44D42 /* New_Game_Page.swift in Sources */,
 				BEDA530E21F14023002FAC32 /* Marker_Info_Page.swift in Sources */,
@@ -442,6 +513,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GWWKFDZU72;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Shot Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -460,6 +535,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GWWKFDZU72;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Shot Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
